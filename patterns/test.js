@@ -116,3 +116,31 @@ function maxSum(arr, n) {
 }
 
 console.log(maxSum([1, 2, 5, 2, 8, 1, 5], 2));
+
+function factorial(num) {
+  if (num === 1) return 1;
+  return num * factorial(num - 1);
+}
+
+console.log(factorial(5));
+
+function power(base, exponent) {
+  if (exponent === 0) return 1;
+  return base * power(base, exponent - 1);
+}
+
+console.log(power(2, 4));
+
+function product(arr) {
+  if (arr.length === 0) return 1;
+  return arr[0] * product(arr.slice(1));
+}
+
+console.log(product([1, 2, 3, 10]));
+
+function recursiveRange(num) {
+  if (num === 1) return 1;
+  return num + recursiveRange(num - 1);
+}
+
+console.log(recursiveRange(10));
