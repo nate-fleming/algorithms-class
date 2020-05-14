@@ -144,3 +144,10 @@ function recursiveRange(num) {
 }
 
 console.log(recursiveRange(10));
+
+function fib(num) {
+  if (num <= 2) return 1;
+  return fib(num - 1) + fib(num - 2);
+}
+
+console.log("fib", fib(4));
