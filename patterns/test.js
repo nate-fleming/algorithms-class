@@ -151,3 +151,58 @@ function fib(num) {
 }
 
 console.log("fib", fib(4));
+
+// Given two arrays of equal or varying length
+// return an array of the merged values, preserving order.
+
+// Example input: [1,2,3], [3,7,8]
+// Example output: [1,2,3,3,7,8]
+
+// Example input: [3,4,5,5], [0,10]
+// Example output: [0,3,4,5,5,10]
+
+function mergeTwoSortedArrays(arrOne, arrTwo) {
+  // your code here
+  let mergedArr = [];
+
+  let i = 0;
+  let j = 0;
+
+  while (i < arrOne.length || j < arrTwo.length) {
+    if (i >= arrOne.length) {
+      mergedArr.push(arrTwo[j]);
+      j++;
+    } else if (j >= arrTwo.length) {
+      mergedArr.push(arrOne[i]);
+      i++;
+    } else {
+      if (arrOne[i] < arrTwo[j]) {
+        mergedArr.push(arrOne[i]);
+        i++;
+      } else {
+        mergedArr.push(arrTwo[j]);
+        j++;
+      }
+    }
+  }
+  return mergedArr;
+}
+
+console.log(mergeTwoSortedArrays([4, 5, 6], [2, 3, 5, 6]));
+
+// Given an array, flatten it so that it contains no sub-arrays.
+
+// Do so without using Array#flatten.
+
+// Example input: [1,2,3,[4,5,[6]]]
+// Example output: [1,2,3,4,5,6]
+
+function flatten(arr, res = []) {
+  // [1,2,3,4,5,]
+  // Your solution here
+  for (let item of arr) {
+    if (Array.isArray(item)) return flatten(item, res);
+    res.push(item);
+  }
+  return res;
+}
